@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Processos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+    <table class="highlight">
+        <thead style="background-color: black; color: white;">
+            <tr>
+                <th>Pasta</th>
+                <th>Comarca</th>
+                <th>UF</th>
+            </tr>
+        </thead>
+        {% for valores in lista %}
+        <tbody>
+            <tr>
+                <th>{{ valores.pasta }}</th>
+                <th>{{ valores.comarca }}</th>
+                <th>{{ valores.uf }}</th>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table><br/>
+    <a href="{% url 'upload' %}" class="btn waves-effect waves-teal"> Voltar </a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

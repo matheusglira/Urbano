@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Processos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+<body class="container">
+    <div class="row">
+        {% if messages %}
+            {% for message in messages %}
+                <div>
+                    <strong>{{message|safe}}</strong>
+                </div>
+            {% endfor %}
+        {% else %}
+        <label>{{order}}</label>
+        <form action="" method="POST" enctype="multipart/form-data" class = "col s12">
+            {% csrf_token %}
+            <div class="row">
+                <div class = "file-field input-field">
+                    <div class = "btn">
+                          <span>Importar Arquivo</span>
+                         <input type="file" id="arquivo1" name="arquivo">
+                    </div>
+                    <div class = "file-path-wrapper">
+                     <input class = "file-path validate" type = "text"
+                        placeholder = "Somente arquivos .CSV" />
+                    </div>
+                     <button type="submit" class="btn waves-effect waves-teal">Enviar</button>
+                     <a href="{% url 'lista' %}" class="btn waves-effect waves-teal"> Ver Processos </a>
+                </div>
+            </div>
+        </form>
+        {% endif %}
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
